@@ -84,32 +84,31 @@ public class TriangleAnalyzer
     // Type of a triangle
     public String triangleType()
     {
-        if (sideA == sideB  && sideA == sideC)
+        if ((sideA < (sideB + sideC)) || (sideB < (sideA + sideC)) || (sideC < (sideA + sideB)))
         {
+            return ("\n\tNot a  triangle");
+        }
+        else if (sideA == sideB  && sideA == sideC)
+        {    
             return ("\n\tEquilateral Triangle");
         }
         else if (sideA == sideB || sideA == sideC || sideB == sideC)
         {
-            return("\n\tIsoscleles Triangle");
+            if (Right() == true)
+            {
+                return ("\n\tAn isosceles Right Angle Triangle");
+            }
+            else if (Obtuse() == true)
+            {
+                return ("\n\tAn isosceles Obtuse Triangle");
+            }
+            else 
+            {
+                return ("\n\tAn isosceles Acute Triangle");
+            }
         }
-        else if (Right() == true)
-        {
-            return ("\n\tRight Angle Triangle");
-        }
-        else if (Obtuse() == true)
-        {
-            return ("\n\tObtuse Triangle");
-        }
-        else if (Right() == false && Obtuse() == false)
-        {
-            return ("\n\tAcute Triangle");
-        }
-        else
-        {
-            return ("\n\tNot a triangle");
-        }
-            
-        }
+                 
+    }
     
 }
 

@@ -34,7 +34,7 @@ public class TriangleAnalyzerTest
         System.out.println("A triangle with sides of " + triangle.toString() 
                         + "\nThe triangle is of type " + triangle.triangleType()
                         + "\nArea of the triangle is " + 
-                        String.format("%7.2f", triangle.getArea());
+                        + String.format("%7.2f", triangle.getArea());
         
         
     }
