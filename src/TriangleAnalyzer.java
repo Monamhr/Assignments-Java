@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import javax.swing.JOptionPane;
 /**
  *
  * @author mona
@@ -11,12 +10,12 @@ import javax.swing.JOptionPane;
 public class TriangleAnalyzer 
 {
     // Instance variables
-    private double sideA; // Lengths of the 3 sides of a triangle
-    private double sideB;
-    private double sideC;   
+    private int sideA; // Lengths of the 3 sides of a triangle
+    private int sideB;
+    private int sideC;   
     
     // Create triangle of lengths sideA, sideB and sideC
-    public TriangleAnalyzer(double sideA, double sideB, double sideC)
+    public TriangleAnalyzer(int sideA, int sideB, int sideC)
     {
         this.sideA = sideA;
         this.sideB = sideB;
@@ -64,15 +63,15 @@ public class TriangleAnalyzer
     //Obtuse Triangle
     public boolean Obtuse()
     {
-        if (((sideA + sideB) * (sideA + sideB)) < ((sideC * sideC)))
+        if (((sideA * sideA) + (sideB * sideB)) < ((sideC * sideC)))
 	{
 		return true;
 	}
-	else if (((sideB + sideC) * (sideB + sideC)) < ((sideA * sideA)))
+	else if (((sideB * sideB) + (sideC * sideC)) < ((sideA * sideA)))
 	{
 		return true;
 	}
-	else if (((sideC + sideA) * (sideC + sideA)) < ((sideB * sideB)))
+	else if (((sideC * sideC) + (sideA * sideA)) < ((sideB * sideB)))
 	{
 		return true;
 	}	
@@ -91,7 +90,7 @@ public class TriangleAnalyzer
          * area = the squareroot of (s(s -a) (s - b) (s-c))
          * where, a, b and c are the length of the sides
          */
-        double halfPerim = (sideA + sideB + sideC) / 2;
+        double halfPerim = (double)(sideA + sideB + sideC) / 2.0;
         double area = Math.sqrt(halfPerim * ( halfPerim - sideA) * (halfPerim - sideB)
                         * (halfPerim - sideC));
         return area;
