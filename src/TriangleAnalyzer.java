@@ -99,7 +99,7 @@ public class TriangleAnalyzer
     // Type of a triangle
     public String triangleType()
     {
-        if (((sideA + sideB) >= sideC) || ((sideB + sideC) >= sideA) || ((sideC + sideA) >= sideB))
+        if (((sideA + sideB) <= sideC) || ((sideB + sideC) <= sideA) || ((sideC + sideA) <= sideB))
         {
             return ("\n\t Not a  triangle");
         }
