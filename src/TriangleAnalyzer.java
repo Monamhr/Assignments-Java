@@ -27,7 +27,20 @@ public class TriangleAnalyzer
     {
         return sideA + "," + sideB + "," + sideC;
     }
-     
+    
+    
+    // Equilateral Triangle
+    public boolean Equilateral()
+    {
+	if ((sideA == sideB) && (sideB == sideC) && (sideC == sideA))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+    }
     // Right angle triangle
     public boolean Right()
     {
@@ -51,23 +64,25 @@ public class TriangleAnalyzer
     //Obtuse Triangle
     public boolean Obtuse()
     {
-        if(((sideA + sideB) *(sideA + sideB)) <= (sideC * sideC))
-        {
-            return true;
-        }
-        else if(((sideB + sideC) *(sideB + sideC)) <= (sideA * sideA))
-        {
-            return true;
-        }
-        if(((sideC + sideA) + (sideC + sideA)) <= (sideB * sideB)) 
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        if (((sideA + sideB) * (sideA + sideB)) < ((sideC * sideC)))
+	{
+		return true;
+	}
+	else if (((sideB + sideC) * (sideB + sideC)) < ((sideA * sideA)))
+	{
+		return true;
+	}
+	else if (((sideC + sideA) * (sideC + sideA)) < ((sideB * sideB)))
+	{
+		return true;
+	}	
+	else 
+	{
+		return false;
+	}
+        
     }
+    
     // Get the area of a triangle
     public double getArea()
     {
@@ -84,11 +99,11 @@ public class TriangleAnalyzer
     // Type of a triangle
     public String triangleType()
     {
-        if ((sideA < (sideB + sideC)) || (sideB < (sideA + sideC)) || (sideC < (sideA + sideB)))
+        if (((sideA + sideB) >= sideC) || ((sideB + sideC) >= sideA) || ((sideC + sideA) >= sideB))
         {
-            return ("\n\tNot a  triangle");
+            return ("\n\t Not a  triangle");
         }
-        else if (sideA == sideB  && sideA == sideC)
+        else if (Equilateral() == true)
         {    
             return ("\n\tEquilateral Triangle");
         }
@@ -96,18 +111,33 @@ public class TriangleAnalyzer
         {
             if (Right() == true)
             {
-                return ("\n\tAn isosceles Right Angle Triangle");
+                return ("\n\t Right Isosceles Triangle");
             }
             else if (Obtuse() == true)
             {
-                return ("\n\tAn isosceles Obtuse Triangle");
+                return ("\n\t Obtuse Isosceles Triangle");
             }
             else 
             {
-                return ("\n\tAn isosceles Acute Triangle");
+                return("\n\t Acute Isosceles Triangle");
             }
         }
-                 
+            
+        else if (Right() == true)
+        {
+            return ("\n\tRight Triangle");
+        }
+        else if (Obtuse() == true)
+        {
+            return ("\n\tObtuse Triangle");
+        }
+        else 
+        {
+            return ("\n\tAcute Triangle");
+        }
+        
+        
+                
     }
     
 }
